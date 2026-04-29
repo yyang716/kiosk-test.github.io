@@ -37,27 +37,21 @@ body {
 <p>Select an option below for IT assistance.</p>
 
 <div class="container">
-  <div class="card" onclick="dial('2006181')">
+  <a class="card" href="sip:2006181">
     <h2>Technical Help</h2>
     <p>Get help with an IT issue</p>
-  </div>
+  </a>
 
-  <div class="card" onclick="dial('2002169')">
+  <a class="card" href="sip:2002169">
     <h2>Front Desk</h2>
     <p>Check in or speak with staff</p>
-  </div>
+  </a>
 
-  <div class="card" onclick="dial('2006181')">
+  <a class="card" href="sip:2006181">
     <h2>Device Appointment</h2>
-    <p>Get help with a scheduled device appointment</p>
-  </div>
+    <p>Schedule device support</p>
+  </a>
 </div>
-
-<script>
-function dial(number) {
-  window.location.href = "sip:" + number;
-}
-</script>
 
 </body>
 </html>
