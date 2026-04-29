@@ -37,21 +37,27 @@ body {
 <p>Select an option below for IT assistance.</p>
 
 <div class="container">
-  <a class="card" href="sip:2006181">
+  <a class="card" href="sip:2006181@madera.webex.com">
     <h2>Technical Help</h2>
     <p>Get help with an IT issue</p>
   </a>
 
-  <a class="card" href="sip:2002169">
+  <a class="card" href="sip:2002169@madera.webex.com">
     <h2>Front Desk</h2>
     <p>Check in or speak with staff</p>
   </a>
 
-  <a class="card" href="sip:2006181">
+  <a class="card" href="sip:2006181@madera.webex.com">
     <h2>Device Appointment</h2>
     <p>Schedule device support</p>
   </a>
 </div>
+
+<script>
+function dial(number) {
+  window.open("sip:" + number);
+}
+</script>  
 
 </body>
 </html>
