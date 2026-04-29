@@ -1,63 +1,166 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: sans-serif;
-  background: linear-gradient(#0a3d8f, #0f5bd3);
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: radial-gradient(circle at top, #0f63c9 0%, #063b8f 45%, #052b6f 100%);
   color: white;
   text-align: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.logo {
+  position: absolute;
+  top: 30px;
+  left: 45px;
+  width: 120px;
+}
+
+.time {
+  position: absolute;
+  top: 45px;
+  right: 55px;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+h1 {
+  margin-top: 145px;
+  margin-bottom: 12px;
+  font-size: 60px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.subtitle {
+  font-size: 30px;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 55px;
 }
 
 .container {
   display: flex;
   justify-content: center;
-  gap: 40px;
-  margin-top: 100px;
+  gap: 34px;
 }
 
 .card {
-  background: white;
-  color: black;
-  border-radius: 20px;
-  padding: 30px;
-  width: 250px;
+  display: block;
+  text-decoration: none;
+  background: #ffffff;
+  color: #14213d;
+  border-radius: 24px;
+  padding: 38px 28px 30px;
+  width: 330px;
+  height: 300px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.22);
   cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.card:hover {
-  transform: scale(1.05);
+.card:active {
+  transform: scale(0.96);
+}
+
+.icon-circle {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  margin: 0 auto 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.green {
+  background: #0db394;
+}
+
+.blue {
+  background: #006dcc;
+}
+
+.purple {
+  background: #6657d9;
+}
+
+.icon-circle img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+}
+
+.card h2 {
+  font-size: 35px;
+  margin: 0 0 12px;
+  font-weight: 800;
+}
+
+.card p {
+  font-size: 21px;
+  margin: 0;
+  color: #4b5563;
 }
 </style>
 </head>
 
 <body>
 
+<img class="logo" src="assets/MC-Logo.png" alt="Madera County Logo">
+
+<div class="time" id="time"></div>
+
 <h1>How can we help you today?</h1>
-<p>Select an option below for IT assistance.</p>
+<p class="subtitle">Select an option below for IT assistance.</p>
 
 <div class="container">
+
   <a class="card" href="sip:2006181@madera.webex.com">
+    <div class="icon-circle green">
+      <img src="assets/headset-icon.png" alt="">
+    </div>
     <h2>Technical Help</h2>
     <p>Get help with an IT issue</p>
   </a>
 
   <a class="card" href="sip:2002169@madera.webex.com">
+    <div class="icon-circle blue">
+      <img src="assets/frontdesk-icon.png" alt="">
+    </div>
     <h2>Front Desk</h2>
     <p>Check in or speak with staff</p>
   </a>
 
   <a class="card" href="sip:2006181@madera.webex.com">
+    <div class="icon-circle purple">
+      <img src="assets/appointment-logo.png" alt="">
+    </div>
     <h2>Device Appointment</h2>
     <p>Schedule device support</p>
   </a>
+
 </div>
 
 <script>
-function dial(number) {
-  window.open("sip:" + number);
+function updateTime() {
+  const now = new Date();
+  document.getElementById("time").textContent =
+    now.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
 }
-</script>  
+
+updateTime();
+setInterval(updateTime, 30000);
+</script>
 
 </body>
 </html>
