@@ -152,6 +152,10 @@ h1 {
 </div>
 
 <script>
+function dial(number) {
+  window.open("sip:" + number);
+}
+
 function updateTime() {
   const now = new Date();
   document.getElementById("time").textContent =
